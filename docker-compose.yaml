@@ -1,0 +1,12 @@
+version: '3'
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:v2.27.0-s6
+    restart: always
+    container_name: filebrowser
+    volumes:
+      - ${ROOT_PATH}:/srv
+      - ${DB_PATH}:/database/filebrowser.db
+      - ./config/settings.json:/config/settings.json
+    ports:
+      - "${FB_PORT}:8080"
